@@ -1,0 +1,14 @@
+{
+  "name": "adopt-me",
+  "version": "1.0.0",
+  "description": "intro to react v7",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,html}\""
+  },
+  "author": "Michael Sayapin",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
