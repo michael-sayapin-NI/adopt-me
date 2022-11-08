@@ -14,7 +14,7 @@ export const Pet = ({ name, animal, breed }) => {
 
 /**
  * @typedef {object} PetProps
- * @property {string} name - Pet name
- * @property {string} animal - Pet type
- * @property {string} breed - Pet breed
+ * @property {string} name
+ * @property {string} animal
+ * @property {string} breed
  */
