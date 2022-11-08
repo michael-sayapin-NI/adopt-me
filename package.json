@@ -4,7 +4,9 @@
   "description": "intro to react v7",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,html}\""
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,html}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,html}\"",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "author": "Michael Sayapin",
   "license": "ISC",
