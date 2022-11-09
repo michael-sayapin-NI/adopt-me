@@ -1,13 +1,16 @@
-import { StrictMode } from 'react';
+import { StrictMode, useState } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import { WrappedDetails } from './Details';
 import { SearchParams } from './SearchParams';
+import { ThemeContext } from './ThemeContext';
 
 const App = () => {
+  const theme = useState('darkblue');
+
   return (
-    <div>
+    <ThemeContext.Provider value={theme}>
       <BrowserRouter>
         <header>
           <Link to="/">Adopt Me!</Link>
@@ -17,7 +20,7 @@ const App = () => {
           <Route path="/" element={<SearchParams />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </ThemeContext.Provider>
   );
 };
 
