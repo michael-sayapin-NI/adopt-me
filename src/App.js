@@ -5,9 +5,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Details } from './Details';
 import { SearchParams } from './SearchParams';
 
-/**
- * @return {JSX.Element}
- */
 const App = () => {
   return (
     <div>
