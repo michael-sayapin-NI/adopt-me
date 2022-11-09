@@ -2,13 +2,9 @@ import { Component } from 'react';
 import { useParams } from 'react-router-dom';
 
 class Details extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-    };
-  }
+  state = {
+    loading: true,
+  };
 
   async componentDidMount() {
     const res = await fetch(
@@ -16,17 +12,7 @@ class Details extends Component {
     );
     const json = await res.json();
 
-    // First way to update state
     this.setState({ loading: false, ...json.pets[0] });
-
-    // Second way to update state
-    // this.setState(Object.assign({ loading: false }, json.pets[0]));
-
-    // Third way to update state
-    // this.setState({
-    //   loading: false,
-    // });
-    // this.setState(json.pets[0]);
   }
 
   render() {
