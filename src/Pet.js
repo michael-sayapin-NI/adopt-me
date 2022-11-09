@@ -17,7 +17,7 @@ export const Pet = ({ name, animal, breed, images, id, location }) => {
   return (
     <a href={`/details/${id}`} className="pet">
       <div className="image-container">
-        <img src={hero} alt={name} />
+        <img src={hero} alt={name} width="100" height="100" />
       </div>
       <div className="info">
         <h1>{name}</h1>
