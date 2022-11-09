@@ -5,9 +5,6 @@ import { Results } from './Results';
 
 const ANIMALS = ['bird', 'cat', 'dog', 'rabbit', 'reptile'];
 
-/**
- * @return {JSX.Element}
- */
 export const SearchParams = () => {
   const [location, setLocation] = useState('');
   const [animal, setAnimal] = useState('');

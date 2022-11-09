@@ -1,16 +1,22 @@
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
+import { WrappedDetails } from './Details';
 import { SearchParams } from './SearchParams';
 
-/**
- * @return {JSX.Element}
- */
 const App = () => {
   return (
     <div>
-      <h1>Adopt Me!</h1>
-      <SearchParams />
+      <BrowserRouter>
+        <header>
+          <Link to="/">Adopt Me!</Link>
+        </header>
+        <Routes>
+          <Route path="/details/:id" element={<WrappedDetails />} />
+          <Route path="/" element={<SearchParams />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
