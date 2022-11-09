@@ -5,7 +5,7 @@ import { Pet } from './Pet';
  * @param {PetInterface[]} props.pets
  * @return {JSX.Element}
  */
-export const Results = ({ pets = [] }) => {
+export const Results = ({ pets }) => {
   const isPetsEmpty = pets.length === 0;
 
   return (
