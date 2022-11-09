@@ -4,10 +4,10 @@
 }
 
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
   background-color: #81a69b;
   background-image: url(https://pets-images.dev-apis.com/pets/wallpaperB.jpg);
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .search-params {
@@ -16,41 +16,41 @@ body {
 }
 
 .search-params form {
-  border-radius: 6px;
-  background: #faeff0;
-  box-shadow: 0 0 12px #aaa, -0px -0px 12px #fff;
-  width: 360px;
-  margin: 0 25px 0 0;
-  padding: 35px 15px 15px 15px;
   float: left;
+  width: 360px;
+  padding: 35px 15px 15px 15px;
+  margin: 0 25px 0 0;
+  background: #faeff0;
+  border-radius: 6px;
+  box-shadow: 0 0 12px #aaa, -0px -0px 12px #fff;
 }
 
 .search {
-  border-radius: 6px;
-  background: #faeff0;
-  box-shadow: 0 0 12px #aaa, -0px -0px 12px #fff;
+  float: left;
   width: 715px;
   padding: 15px;
-  float: left;
   margin-bottom: 25px;
+  background: #faeff0;
+  border-radius: 6px;
+  box-shadow: 0 0 12px #aaa, -0px -0px 12px #fff;
 }
 
 .details {
   width: 1100px;
   padding: 15px;
   margin: 0 auto 25px;
-  border-radius: 6px;
   background: #faeff0;
+  border-radius: 6px;
   box-shadow: 0 0 12px #aaa, -0px -0px 12px #fff;
 }
 
 .pet {
-  width: 100%;
   height: 130px;
-  display: block;
-  overflow: hidden;
+  width: 100%;
   margin: 25px 0;
+  display: block;
   border-bottom: #333 2px solid;
+  overflow: hidden;
 }
 
 .pet img {
@@ -68,60 +68,60 @@ body {
 }
 
 .image-container {
-  clip-path: circle(50% at 50% 50%);
-  width: 100px;
-  height: 100px;
   float: left;
+  height: 100px;
+  width: 100px;
   margin: 0 20px 0 10px;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .pet h1 {
-  white-space: nowrap;
-  font-weight: normal;
-  font-size: 30px;
   color: #333;
-  width: 95%;
-  overflow: hidden;
-  margin: 0;
+  font-size: 30px;
+  font-weight: normal;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  width: 95%;
+  margin: 0;
+  overflow: hidden;
 }
 
 header > a,
 #root > div > h1 {
   display: inline-block;
+  text-indent: -9999px;
+  height: 76px;
+  width: 279px;
+  margin: 20px 0;
   background-image: url(https://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png);
   filter: brightness(150%);
-  width: 279px;
-  height: 76px;
   overflow: hidden;
-  text-indent: -9999px;
-  margin: 20px 0;
 }
 
 .pet h2 {
-  white-space: nowrap;
-  font-weight: normal;
   font-size: 20px;
-  margin: 0;
+  font-weight: normal;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  margin: 0;
 }
 
 header a {
   color: #333;
   font-size: 3px;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
   display: block;
   padding-bottom: 10px;
 }
 
 header {
+  width: 1100px;
+  padding: 20px 0 0 0;
+  margin: 0 auto;
   display: flex;
   align-content: center;
   justify-content: center;
-  width: 1100px;
-  margin: 0 auto;
-  padding: 20px 0 0 0;
 }
 
 .details p {
@@ -130,9 +130,9 @@ header {
 }
 
 .details h1 {
-  text-align: center;
   color: #333;
   font-size: 60px;
+  text-align: center;
   margin: 5px 0;
 }
 
@@ -142,16 +142,16 @@ header {
 }
 
 .carousel {
+  height: 400px;
+  margin-top: 8px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 400px;
-  margin-top: 8px;
 }
 
 .carousel > img {
-  max-width: 45%;
   max-height: 400px;
+  max-width: 45%;
 }
 
 .carousel-smaller {
@@ -159,52 +159,52 @@ header {
 }
 
 .carousel-smaller > img {
-  width: 100px;
   height: 100px;
-  border-radius: 50%;
-  display: inline-block;
+  width: 100px;
   margin: 15px;
-  cursor: pointer;
+  display: inline-block;
+  border-radius: 50%;
   border: 2px solid #333;
+  cursor: pointer;
 }
 
 .carousel-smaller > img.active {
-  border-color: #333;
   opacity: 0.6;
+  border-color: #333;
 }
 
 .search-params label {
-  display: block;
   width: 60px;
+  display: block;
 }
 
 .search-params input,
 .search-params select {
-  margin-bottom: 30px;
   font-size: 18px;
   height: 30px;
   width: 325px;
+  margin-bottom: 30px;
 }
 
 .search-params button,
 #modal button,
 #modal a,
 .details button {
-  background-color: #ad343e;
-  padding: 5px 25px;
   color: white;
   font-size: 18px;
+  padding: 5px 25px;
+  margin: 0 auto;
+  display: block;
+  background-color: #ad343e;
   border: #333 1px solid;
   border-radius: 5px;
-  display: block;
-  margin: 0 auto;
   cursor: pointer;
 }
 
 #modal a {
-  display: inline-block;
-  margin-right: 15px;
   text-decoration: none;
+  margin-right: 15px;
+  display: inline-block;
 }
 
 .search-params button:hover {
@@ -220,16 +220,16 @@ header {
 }
 
 #modal {
-  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
   z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 #modal:empty {
@@ -237,26 +237,26 @@ header {
 }
 
 #modal > div {
+  text-align: center;
   max-width: 500px;
   padding: 15px;
-  text-align: center;
-  border-radius: 30px;
   background: #faeff0;
+  border-radius: 30px;
 }
 
 #modal .buttons button {
-  display: inline-block;
   margin-right: 15px;
+  display: inline-block;
 }
 
 @media only screen and (max-width: 1129px) {
   header {
+    width: 95%;
+    padding: 20px 0 0 0;
+    margin: 0 auto;
     display: flex;
     align-content: center;
     justify-content: center;
-    width: 95%;
-    margin: 0 auto;
-    padding: 20px 0 0 0;
   }
 
   .search-params {
@@ -268,18 +268,18 @@ header {
   }
 
   .search {
+    float: left;
     width: 55%;
     padding: 15px;
-    border-radius: 9px;
-    float: left;
     margin-bottom: 25px;
+    border-radius: 9px;
   }
 
   .details {
     width: 95%;
     padding: 15px;
-    border-radius: 9px;
     margin: 0 auto 25px;
+    border-radius: 9px;
   }
 
   .info {
@@ -287,17 +287,17 @@ header {
   }
 
   .info h1 {
-    width: 100%;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
   }
 
   .info h2 {
-    width: 100%;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
   }
 }
 
@@ -317,16 +317,16 @@ header {
   }
 
   .info {
-    width: 100%;
     text-align: center;
+    width: 100%;
   }
 
   .image-container {
-    margin: 0 auto;
     float: none;
+    margin: 0 auto;
   }
   .carousel-smaller > img {
-    width: 60px;
     height: 60px;
+    width: 60px;
   }
 }
