@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 /**
  * @param {object} props
  * @param {string} props.name
@@ -15,7 +17,7 @@ export const Pet = ({ name, animal, breed, images, id, location }) => {
       : 'http://pet-images.dev-apis.com/pets/none.jpg';
 
   return (
-    <a href={`/details/${id}`} className="pet">
+    <Link to={`/details/${id}`} className="pet">
       <div className="image-container">
         <img src={hero} alt={name} width="100" height="100" />
       </div>
@@ -25,6 +27,6 @@ export const Pet = ({ name, animal, breed, images, id, location }) => {
           {animal} - {breed} - {location}
         </h2>
       </div>
-    </a>
+    </Link>
   );
 };
