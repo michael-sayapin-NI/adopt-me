@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, useDebugValue } from 'react';
+
+import { useBreedList } from './useBreedList';
+import { Results } from './Results';
 
 const ANIMALS = ['bird', 'cat', 'dog', 'rabbit', 'reptile'];
 
@@ -9,11 +12,32 @@ export const SearchParams = () => {
   const [location, setLocation] = useState('');
   const [animal, setAnimal] = useState('');
   const [breed, setBreed] = useState('');
-  const breeds = [];
+  const [pets, setPets] = useState([]);
+  const [breeds, status] = useBreedList(animal);
+
+  useDebugValue(status);
+
+  useEffect(() => {
+    requestPets();
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
+
+  async function requestPets() {
+    const res = await fetch(
+      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+    );
+    const json = await res.json();
+
+    setPets(json.pets || []);
+  }
 
   return (
     <div className="search-params">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
         <label htmlFor="location">
           Location
           <input
@@ -30,11 +54,11 @@ export const SearchParams = () => {
             value={animal}
             onChange={(e) => {
               setAnimal(e.target.value);
-              setBreed("");
+              setBreed('');
             }}
             onBlur={(e) => {
               setAnimal(e.target.value);
-              setBreed("");
+              setBreed('');
             }}
           >
             <option />
@@ -67,6 +91,7 @@ export const SearchParams = () => {
         </label>
         <button>Submit</button>
       </form>
+      <Results pets={pets} />
     </div>
   );
 };
