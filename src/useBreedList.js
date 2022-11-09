@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useDebugValue } from 'react';
 
 const localCache = {}; //TODO - change to browser local storage
 
 export function useBreedList(animal) {
   const [breedList, setBreedList] = useState([]);
   const [status, setStatus] = useState('unloaded');
+
+  useDebugValue(
+    `number of values in cache: ${Object.entries(localCache).length}`
+  );
 
   useEffect(() => {
     if (!animal) {
