@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
+/**
+ * @param {React.Children} children
+ * @return {React.ReactPortal}
+ */
 export const Modal = ({ children }) => {
   const elementRef = useRef(null);
 
