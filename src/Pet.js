@@ -1,5 +1,5 @@
 /**
- * @param {PetProps} props
+ * @param {PetInterface} props
  * @return JSX.Element
  */
 export const Pet = ({ name, animal, breed }) => {
@@ -12,9 +12,3 @@ export const Pet = ({ name, animal, breed }) => {
   );
 };
 
-/**
- * @typedef {object} PetProps
- * @property {string} name
- * @property {string} animal
- * @property {string} breed
- */
