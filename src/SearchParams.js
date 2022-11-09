@@ -25,7 +25,7 @@ export const SearchParams = () => {
     );
     const json = await res.json();
 
-    setPets(json.pets);
+    setPets(json.pets || []);
   }
 
   return (
@@ -88,8 +88,8 @@ export const SearchParams = () => {
           </select>
         </label>
         <button>Submit</button>
-        <Results pets={pets} />
       </form>
+      <Results pets={pets} />
     </div>
   );
 };

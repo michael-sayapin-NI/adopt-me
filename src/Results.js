@@ -1,7 +1,8 @@
 import { Pet } from './Pet';
 
 /**
- * @param {PetInterface[]} pets
+ * @param {object} props
+ * @param {PetInterface[]} props.pets
  * @return {JSX.Element}
  */
 export const Results = ({ pets = [] }) => {
