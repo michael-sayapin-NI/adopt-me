@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const ThemeContext = createContext(['#50577a', () => {}]);
+export const ThemeContext = createContext(['#50577a', (value) => value]);
