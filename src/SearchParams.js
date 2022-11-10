@@ -108,7 +108,12 @@ export const SearchParams = () => {
             <option value="mediumorchid">Medium Orchid</option>
           </select>
         </label>
-        <button className="rounded px-6 py-2 text-white hove:opacity-50 border-none" style={{ backgroundColor: theme }}>Submit</button>
+        <button
+          className="rounded px-6 py-2 text-white hove:opacity-50 border-none"
+          style={{ backgroundColor: theme }}
+        >
+          Submit
+        </button>
       </form>
       <Results pets={pets} />
     </div>
