@@ -42,15 +42,18 @@ export const SearchParams = () => {
           Location
           <input
             id="location"
+            type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             placeholder="Location"
+            className="w-60 mb-5 block"
           />
         </label>
         <label htmlFor="animal">
           Animal
           <select
             id="animal"
+            className="w-60 mb-5 block"
             value={animal}
             onChange={(e) => {
               setAnimal(e.target.value);
@@ -72,7 +75,9 @@ export const SearchParams = () => {
         <label htmlFor="breed">
           Breed
           <select
+            disabled={!breeds.length}
             id="breed"
+            className="w-60 mb-5 block disabled:opacity-50"
             value={breed}
             onChange={(e) => {
               setBreed(e.target.value);
@@ -92,6 +97,7 @@ export const SearchParams = () => {
         <label htmlFor="theme">
           Theme
           <select
+            className="w-60 mb-5 block"
             value={theme}
             onChange={(e) => setTheme(e.target.value)}
             onBlur={(e) => setTheme(e.target.value)}
@@ -102,7 +108,7 @@ export const SearchParams = () => {
             <option value="mediumorchid">Medium Orchid</option>
           </select>
         </label>
-        <button style={{ backgroundColor: theme }}>Submit</button>
+        <button className="rounded px-6 py-2 text-white hove:opacity-50 border-none" style={{ backgroundColor: theme }}>Submit</button>
       </form>
       <Results pets={pets} />
     </div>
