@@ -6,7 +6,7 @@ import { ThemeContext } from './ThemeContext';
 
 const ANIMALS = ['bird', 'cat', 'dog', 'rabbit', 'reptile'];
 
-export const SearchParams = () => {
+const SearchParams = () => {
   const [location, setLocation] = useState('');
   const [animal, setAnimal] = useState('');
   const [breed, setBreed] = useState('');
@@ -107,3 +107,5 @@ export const SearchParams = () => {
     </div>
   );
 };
+
+export default SearchParams;
