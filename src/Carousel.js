@@ -9,9 +9,9 @@ export class Carousel extends Component {
     images: ['http://pets-images.dev-apis.com/pets/none.jpg'],
   };
 
-  handleIndexClick = (e) => {
+  handleIndexClick = (event) => {
     this.setState({
-      active: Number.parseInt(e.target.dataset.index, 10),
+      active: Number.parseInt(event.target.dataset.index, 10),
     });
   };
 

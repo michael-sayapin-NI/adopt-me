@@ -17,11 +17,11 @@ export const Pet = ({ name, animal, breed, images, id, location }) => {
       : 'http://pet-images.dev-apis.com/pets/none.jpg';
 
   return (
-    <Link to={`/details/${id}`} className="relative block">
-      <div>
-        <img src={hero} alt={name} width="450" height="450" />
+    <Link to={`/details/${id}`} className="pet">
+      <div className="image-container">
+        <img src={hero} alt={name} width="100" height="100" />
       </div>
-      <div className="absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2">
+      <div className="info">
         <h1>{name}</h1>
         <h2>
           {animal} - {breed} - {location}
