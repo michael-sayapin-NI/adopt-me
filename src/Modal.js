@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
  * @param {React.Children} children
  * @return {React.ReactPortal}
  */
-export const Modal = ({ children }) => {
+const Modal = ({ children }) => {
   const elementRef = useRef(null);
 
   if (!elementRef.current) {
@@ -21,3 +21,5 @@ export const Modal = ({ children }) => {
 
   return createPortal(<div>{children}</div>, elementRef.current);
 };
+
+export default Modal;
