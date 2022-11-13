@@ -1,4 +1,4 @@
-import { FunctionComponent, MutableRefObject, useEffect, useRef } from "react";
+import { FunctionComponent, MutableRefObject, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
 const Modal: FunctionComponent = ({ children }) => {

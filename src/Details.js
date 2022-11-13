@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { Carousel } from './Carousel';
 import { ErrorBoundary } from './ErrorBoundary';
-import { Modal } from './Modal';
+import Modal from './Modal';
 import { ThemeContext } from './ThemeContext';
 
 class Details extends Component {
