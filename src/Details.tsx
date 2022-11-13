@@ -33,9 +33,7 @@ class Details extends Component<DetailsProps> {
       return;
     }
 
-    const res = await fetch(
-      `http://pets-v2.dev-apis.com/pets?id=${params.id}`
-    );
+    const res = await fetch(`http://pets-v2.dev-apis.com/pets?id=${params.id}`);
     const json = (await res.json()) as PetAPIResponse;
 
     this.setState({ loading: false, ...json.pets[0] });
@@ -44,8 +42,17 @@ class Details extends Component<DetailsProps> {
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
 
   render() {
-    const { animal, breed, city, state, description, name, images, showModal, loading } =
-      this.state;
+    const {
+      animal,
+      breed,
+      city,
+      state,
+      description,
+      name,
+      images,
+      showModal,
+      loading,
+    } = this.state;
 
     if (loading) {
       return <h2>loading...</h2>;
