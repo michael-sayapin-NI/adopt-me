@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Carousel from './Carousel';
 import ErrorBoundary from './ErrorBoundary';
 import Modal from './Modal';
-import { Animal, Pet, PetAPIResponse } from './APIResponsesTypes';
+import { Animal, PetAPIResponse } from './APIResponsesTypes';
 import { ThemeContext } from './ThemeContext';
 
 interface DetailsProps {
@@ -27,8 +27,14 @@ class Details extends Component<DetailsProps> {
   };
 
   async componentDidMount() {
+    const { params } = this.props;
+
+    if (!params.id) {
+      return;
+    }
+
     const res = await fetch(
-      `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id || ''}`
+      `http://pets-v2.dev-apis.com/pets?id=${params.id}`
     );
     const json = (await res.json()) as PetAPIResponse;
 
@@ -38,12 +44,12 @@ class Details extends Component<DetailsProps> {
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
 
   render() {
-    if (this.state.loading) {
+    const { animal, breed, city, state, description, name, images, showModal, loading } =
+      this.state;
+
+    if (loading) {
       return <h2>loading...</h2>;
     }
-
-    const { animal, breed, city, state, description, name, images, showModal } =
-      this.state;
 
     return (
       <div className="details">
