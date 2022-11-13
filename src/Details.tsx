@@ -1,16 +1,17 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import Carousel from './Carousel';
 import ErrorBoundary from './ErrorBoundary';
 import Modal from './Modal';
 import { Animal, PetAPIResponse } from './APIResponsesTypes';
-import { ThemeContext } from './ThemeContext';
 
 interface DetailsProps {
   params: {
     id?: string;
   };
+  theme: string;
 }
 
 class Details extends Component<DetailsProps> {
@@ -66,16 +67,13 @@ class Details extends Component<DetailsProps> {
           <h2>
             {animal} - {breed} - {city}, {state}
           </h2>
-          <ThemeContext.Consumer>
-            {([theme]) => (
-              <button
-                onClick={this.toggleModal}
-                style={{ backgroundColor: theme }}
-              >
-                Adopt {name}
-              </button>
-            )}
-          </ThemeContext.Consumer>
+          <button
+            onClick={this.toggleModal}
+            style={{ backgroundColor: this.props.theme }}
+          >
+            Adopt {name}
+          </button>
+
           <p>{description}</p>
           {showModal ? (
             <Modal>
@@ -100,12 +98,16 @@ class Details extends Component<DetailsProps> {
   }
 }
 
+const mapStateToProps = ({ theme }: { theme: string }) => ({ theme });
+
+const ReduxWrappedDetails = connect(mapStateToProps)(Details);
+
 export const WrappedDetails = () => {
   const params = useParams<{ id: string }>();
 
   return (
     <ErrorBoundary>
-      <Details params={params} />
+      <ReduxWrappedDetails params={params} />
     </ErrorBoundary>
   );
 };

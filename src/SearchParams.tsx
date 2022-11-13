@@ -1,25 +1,26 @@
-import {
-  FunctionComponent,
-  useState,
-  useEffect,
-  useDebugValue,
-  useContext,
-} from 'react';
+import { FunctionComponent, useState, useEffect, useDebugValue } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import changeAnimal from './actionCreators/changeAnimal';
+import changeBreed from './actionCreators/changeBreed';
+import changeTheme from './actionCreators/changeTheme';
+import changeLocation from './actionCreators/changeLocation';
 import { Animal, Pet, PetAPIResponse } from './APIResponsesTypes';
-import { useBreedList } from './useBreedList';
 import Results from './Results';
-import { ThemeContext } from './ThemeContext';
+import { StoreInit } from './Store';
+import { useBreedList } from './useBreedList';
 
 const ANIMALS: Animal[] = ['bird', 'cat', 'dog', 'rabbit', 'reptile'];
 
 const SearchParams: FunctionComponent = () => {
-  const [location, setLocation] = useState('');
-  const [animal, setAnimal] = useState('' as Animal);
-  const [breed, setBreed] = useState('');
+  const animal = useSelector((state: StoreInit) => state.animal);
+  const breed = useSelector((state: StoreInit) => state.breed);
+  const location = useSelector((state: StoreInit) => state.location);
+  const theme = useSelector((state: StoreInit) => state.theme);
+  const dispatch = useDispatch();
+
   const [pets, setPets] = useState([] as Pet[]);
   const [breeds, status] = useBreedList(animal);
-  const [theme, setTheme] = useContext(ThemeContext);
 
   useDebugValue(status);
 
@@ -49,7 +50,7 @@ const SearchParams: FunctionComponent = () => {
           <input
             id="location"
             value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={(e) => dispatch(changeLocation(e.target.value))}
             placeholder="Location"
           />
         </label>
@@ -59,12 +60,10 @@ const SearchParams: FunctionComponent = () => {
             id="animal"
             value={animal}
             onChange={(e) => {
-              setAnimal(e.target.value as Animal);
-              setBreed('');
+              dispatch(changeAnimal(e.target.value as Animal));
             }}
             onBlur={(e) => {
-              setAnimal(e.target.value as Animal);
-              setBreed('');
+              dispatch(changeAnimal(e.target.value as Animal));
             }}
           >
             <option />
@@ -81,10 +80,10 @@ const SearchParams: FunctionComponent = () => {
             id="breed"
             value={breed}
             onChange={(e) => {
-              setBreed(e.target.value);
+              dispatch(changeBreed(e.target.value));
             }}
             onBlur={(e) => {
-              setBreed(e.target.value);
+              dispatch(changeBreed(e.target.value));
             }}
           >
             <option />
@@ -99,8 +98,8 @@ const SearchParams: FunctionComponent = () => {
           Theme
           <select
             value={theme}
-            onChange={(e) => setTheme(e.target.value)}
-            onBlur={(e) => setTheme(e.target.value)}
+            onChange={(e) => dispatch(changeTheme(e.target.value))}
+            onBlur={(e) => dispatch(changeTheme(e.target.value))}
           >
             <option value="peru">Peru</option>
             <option value="lightblue">Light Blue</option>
