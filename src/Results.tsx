@@ -11,7 +11,7 @@ const Results: FunctionComponent<ResultsProps> = ({ pets }) => {
   const isPetsEmpty = pets.length === 0;
 
   return (
-    <div>
+    <div className="search">
       {isPetsEmpty ? (
         <h1>No Pets Found</h1>
       ) : (
