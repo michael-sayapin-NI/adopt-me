@@ -6,7 +6,7 @@ type Status = 'unloaded' | 'loading' | 'loaded';
 
 const localCache: Record<string, string[]> = {}; //TODO - change to browser local storage
 
-export function useBreedList(animal: Animal) : [string[], Status] {
+export function useBreedList(animal: Animal): [string[], Status] {
   const [breedList, setBreedList] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>('unloaded');
 
