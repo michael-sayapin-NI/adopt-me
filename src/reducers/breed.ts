@@ -1,8 +1,15 @@
-export default function breed(state = '', action) {
+import { Action } from './types';
+
+const breedTypes = {
+  CHANGE_BREED: 'CHANGE_BREED',
+  CHANGE_ANIMAL: 'CHANGE_ANIMAL',
+};
+
+export default function breed(state = '', action: Action) {
   switch (action.type) {
-    case 'CHANGE_BREED':
+    case breedTypes.CHANGE_BREED:
       return action.payload;
-    case 'CHANGE_ANIMAL':
+    case breedTypes.CHANGE_ANIMAL:
       return '';
     default:
       return state;
