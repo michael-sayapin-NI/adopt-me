@@ -1,16 +1,25 @@
+import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
-/**
- * @param {object} props
- * @param {string} props.name
- * @param {string} props.animal
- * @param {string} props.breed
- * @param {string[]} props.images
- * @param {string} props.id
- * @param {string} props.location
- * @return JSX.Element
- */
-export const Pet = ({ name, animal, breed, images, id, location }) => {
+import { Animal } from './APIResponsesTypes';
+
+interface PetProps {
+  id: number;
+  name: string;
+  animal: Animal;
+  breed: string;
+  images: string[];
+  location: string;
+}
+
+export const Pet: FunctionComponent<PetProps> = ({
+  id,
+  name,
+  animal,
+  breed,
+  images,
+  location,
+}) => {
   const hero =
     images.length > 0
       ? images[0]

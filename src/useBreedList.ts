@@ -1,10 +1,14 @@
 import { useState, useEffect, useDebugValue } from 'react';
 
-const localCache = {}; //TODO - change to browser local storage
+import { Animal, BreedListAPIResponse } from './APIResponsesTypes';
 
-export function useBreedList(animal) {
-  const [breedList, setBreedList] = useState([]);
-  const [status, setStatus] = useState('unloaded');
+type Status = 'unloaded' | 'loading' | 'loaded';
+
+const localCache: Record<string, string[]> = {}; //TODO - change to browser local storage
+
+export function useBreedList(animal: Animal): [string[], Status] {
+  const [breedList, setBreedList] = useState<string[]>([]);
+  const [status, setStatus] = useState<Status>('unloaded');
 
   useDebugValue(
     `number of values in cache: ${Object.entries(localCache).length}`
@@ -16,7 +20,7 @@ export function useBreedList(animal) {
     } else if (localCache[animal]) {
       setBreedList(localCache[animal]);
     } else {
-      requestBreedList();
+      void requestBreedList();
     }
 
     async function requestBreedList() {
@@ -26,7 +30,7 @@ export function useBreedList(animal) {
       const res = await fetch(
         `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
       );
-      const json = await res.json();
+      const json = (await res.json()) as BreedListAPIResponse;
       localCache[animal] = json.breeds || [];
       setBreedList(localCache[animal]);
       setStatus('loaded');

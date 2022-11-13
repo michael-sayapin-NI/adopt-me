@@ -1,11 +1,13 @@
+import { FunctionComponent } from 'react';
+
+import { Pet as PetInterface } from './APIResponsesTypes';
 import { Pet } from './Pet';
 
-/**
- * @param {object} props
- * @param {PetInterface[]} props.pets
- * @return {JSX.Element}
- */
-export const Results = ({ pets }) => {
+interface ResultsProps {
+  pets: PetInterface[];
+}
+
+const Results: FunctionComponent<ResultsProps> = ({ pets }) => {
   const isPetsEmpty = pets.length === 0;
 
   return (
@@ -29,13 +31,4 @@ export const Results = ({ pets }) => {
   );
 };
 
-/**
- * @typedef {object} PetInterface
- * @property {string} name
- * @property {string} animal
- * @property {string} breed
- * @property {string} city
- * @property {string} state
- * @property {string} id
- * @property {string[]} images
- */
+export default Results;

@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import { WrappedDetails } from './Details';
-import { SearchParams } from './SearchParams';
+import SearchParams from './SearchParams';
 import { ThemeContext } from './ThemeContext';
 
 const App = () => {
