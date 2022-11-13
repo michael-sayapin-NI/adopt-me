@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
 import { Pet as PetInterface } from './APIResponsesTypes';
-import { Pet } from './Pet';
+import Pet from './Pet';
 
 interface ResultsProps {
   pets: PetInterface[];
