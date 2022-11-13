@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 
-export class ErrorBoundary extends Component {
+class ErrorBoundary extends Component {
   state = {
     hasError: false,
     redirect: false,
@@ -38,3 +38,5 @@ export class ErrorBoundary extends Component {
     return this.props.children;
   }
 }
+
+export default ErrorBoundary;
